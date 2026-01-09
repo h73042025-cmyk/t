@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العروض - مملكة الطيور</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F59E0B',
+                        secondary: '#D97706'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <header class="bg-white shadow-sm border-b border-amber-100 sticky top-0 z-50">
+        <div class="w-full px-4 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="mobile-menu-btn" class="w-6 h-6 flex items-center justify-center lg:hidden">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center bg-amber-50 rounded-full relative">
+                        <i class="ri-shopping-cart-line text-primary"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-user-line text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="./index.html" class="text-gray-600 hover:text-primary transition-colors">الرئيسية</a>
+                    <a href="./menu.html" class="text-gray-600 hover:text-primary transition-colors">قائمة الطعام</a>
+                    <a href="./order-online.html" class="text-gray-600 hover:text-primary transition-colors">الطلب أونلاين</a>
+                    <a href="#" class="text-primary font-medium">العروض</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">من نحن</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">تواصل معنا</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">فروعنا</a>
+                </nav>
+                
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full">
+                        <i class="ri-restaurant-line text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">مملكة الطيور</h1>
+                        <p class="text-xs text-gray-500">أشهى المأكولات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-4 py-4 space-y-2">
+                <a href="./index.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">الرئيسية</a>
+                <a href="./menu.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">قائمة الطعام</a>
+                <a href="./order-online.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">الطلب أونلاين</a>
+                <a href="./offers.html" class="block py-3 px-4 text-primary font-medium bg-amber-50 rounded-lg">العروض</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">من نحن</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">تواصل معنا</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">فروعنا</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen">
+        <section class="bg-gradient-to-b from-amber-50 to-white py-12">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <nav class="text-sm text-gray-600 mb-6">
+                    <a href="./index.html" class="hover:text-primary">الرئيسية</a>
+                    <span class="mx-2">></span>
+                    <span class="text-primary">العروض</span>
+                </nav>
+                
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">العروض المميزة</h1>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">اكتشف أحدث العروض والخصومات الحصرية من مملكة الطيور</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- العروض الرئيسية -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">العروض الحالية</h2>
+                    <p class="text-gray-600">عروض محدودة الوقت - لا تفوت الفرصة!</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- عرض الكومبو المميز -->
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-100 relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            خصم ٣٠٪
+                        </div>
+                        <div class="h-48 rounded-lg overflow-hidden mb-4">
+                            <img src="https://readdy.ai/api/search-image?query=Combo%20meal%20with%20crepe%20and%20grilled%20chicken%20pieces%20on%20elegant%20plate%2C%20professional%20food%20photography%2C%20warm%20golden%20lighting%2C%20clean%20beige%20background%2C%20appetizing%20presentation%2C%20restaurant%20quality&width=400&height=300&seq=offer1&orientation=landscape" alt="عرض الكومبو" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">عرض الكومبو المميز</h3>
+                        <p class="text-gray-600 mb-4">كريب + قطع فراخ + مشروب</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">٨٥ ج.م</span>
+                                <span class="text-sm text-gray-500 line-through mr-2">١٢٠ ج.م</span>
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                <i class="ri-time-line mr-1"></i>
+                                ينتهي خلال ٥ أيام
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-secondary transition-colors">
+                            اطلب الآن
+                        </button>
+                    </div>
+
+                    <!-- وجبة العائلة -->
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-100 relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            خصم ٢٥٪
+                        </div>
+                        <div class="h-48 rounded-lg overflow-hidden mb-4">
+                            <img src="https://readdy.ai/api/search-image?query=Family%20meal%20with%20multiple%20hawawshi%20sandwiches%20and%20sides%20on%20wooden%20tray%2C%20professional%20food%20photography%2C%20warm%20golden%20lighting%2C%20clean%20beige%20background%2C%20appetizing%20presentation&width=400&height=300&seq=offer2&orientation=landscape" alt="وجبة العائلة" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">وجبة العائلة</h3>
+                        <p class="text-gray-600 mb-4">٤ حواوشي + مقبلات + مشروبات</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">١٥٠ ج.م</span>
+                                <span class="text-sm text-gray-500 line-through mr-2">٢٠٠ ج.م</span>
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                <i class="ri-time-line mr-1"></i>
+                                ينتهي خلال ٣ أيام
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-secondary transition-colors">
+                            اطلب الآن
+                        </button>
+                    </div>
+
+                    <!-- وجبة الفراخ المشوية -->
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-100 relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            خصم ٢٠٪
+                        </div>
+                        <div class="h-48 rounded-lg overflow-hidden mb-4">
+                            <img src="https://readdy.ai/api/search-image?query=Grilled%20chicken%20meal%20with%20rice%20and%20salad%20on%20elegant%20plate%2C%20professional%20food%20photography%2C%20warm%20golden%20lighting%2C%20clean%20beige%20background%2C%20appetizing%20presentation&width=400&height=300&seq=offer3&orientation=landscape" alt="وجبة الفراخ" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">وجبة الفراخ المشوية</h3>
+                        <p class="text-gray-600 mb-4">نصف فرخة + أرز + سلطة</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">٧٥ ج.م</span>
+                                <span class="text-sm text-gray-500 line-through mr-2">٩٥ ج.م</span>
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                <i class="ri-time-line mr-1"></i>
+                                ينتهي خلال ٧ أيام
+                            </div>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-secondary transition-colors">
+                            اطلب الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- عروض يومية -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">العروض اليومية</h2>
+                    <p class="text-gray-600">عروض خاصة لكل يوم من أيام الأسبوع</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-calendar-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">الاثنين</h3>
+                        <p class="text-sm text-gray-600 mb-3">خصم ١٥٪ على جميع الكريبات</p>
+                        <span class="text-primary font-bold">١٥٪ خصم</span>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-calendar-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">الثلاثاء</h3>
+                        <p class="text-sm text-gray-600 mb-3">خصم ٢٠٪ على المشويات</p>
+                        <span class="text-primary font-bold">٢٠٪ خصم</span>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-calendar-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">الأربعاء</h3>
+                        <p class="text-sm text-gray-600 mb-3">خصم ٢٥٪ على الحواوشي</p>
+                        <span class="text-primary font-bold">٢٥٪ خصم</span>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-calendar-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">الخميس</h3>
+                        <p class="text-sm text-gray-600 mb-3">توصيل مجاني للطلبات أكثر من ٥٠ ج.م</p>
+                        <span class="text-primary font-bold">توصيل مجاني</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- عروض نهاية الأسبوع -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">عروض نهاية الأسبوع</h2>
+                    <p class="text-gray-600">عروض مميزة للجمعة والسبت والأحد</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-r from-primary to-secondary rounded-xl p-8 text-white">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white/20 rounded-full">
+                                <i class="ri-gift-line text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">عرض الجمعة المباركة</h3>
+                        </div>
+                        <p class="text-lg mb-4">خصم ٣٠٪ على جميع الطلبات</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line"></i>
+                                <span>خصم على جميع الأطباق</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line"></i>
+                                <span>توصيل مجاني</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line"></i>
+                                <span>هدية مجانية مع كل طلب</span>
+                            </li>
+                        </ul>
+                        <button class="bg-white text-primary px-6 py-3 rounded-xl font-medium hover:bg-gray-100 transition-colors">
+                            اطلب الآن
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-8 text-white">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 flex items-center justify-center bg-white/20 rounded-full">
+                                <i class="ri-restaurant-line text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">عرض نهاية الأسبوع</h3>
+                        </div>
+                        <p class="text-lg mb-4">وجبة عائلية كاملة بخصم ٤٠٪</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line"></i>
+                                <span>فرخة كاملة مشوية</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line"></i>
+                                <span>٤ حواوشي متنوعة</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line"></i>
+                                <span>مشروبات ومقبلات</span>
+                            </li>
+                        </ul>
+                        <button class="bg-white text-green-600 px-6 py-3 rounded-xl font-medium hover:bg-gray-100 transition-colors">
+                            اطلب الآن
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- عروض المشروبات -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">عروض المشروبات</h2>
+                    <p class="text-gray-600">مشروبات منعشة بأسعار مميزة</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-32 rounded-lg overflow-hidden mb-4">
+                            <img src="https://readdy.ai/api/search-image?query=Fresh%20orange%20juice%20in%20glass%20with%20orange%20slices%20on%20white%20background%2C%20professional%20beverage%20photography%2C%20bright%20lighting%2C%20clean%20presentation%2C%20refreshing%20drink&width=300&height=200&seq=drink1&orientation=landscape" alt="عصير برتقال" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">عصير برتقال طازج</h3>
+                        <p class="text-sm text-gray-600 mb-3">عصير برتقال طبيعي ١٠٠٪</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-primary">١٠ ج.م</span>
+                            <span class="text-sm text-gray-500 line-through">١٥ ج.م</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-32 rounded-lg overflow-hidden mb-4">
+                            <img src="https://readdy.ai/api/search-image?query=Fresh%20mango%20juice%20in%20glass%20with%20mango%20pieces%20on%20white%20background%2C%20professional%20beverage%20photography%2C%20bright%20lighting%2C%20clean%20presentation%2C%20tropical%20drink&width=300&height=200&seq=drink2&orientation=landscape" alt="عصير مانجو" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">عصير مانجو</h3>
+                        <p class="text-sm text-gray-600 mb-3">عصير مانجو طازج مع قطع المانجو</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-primary">١٢ ج.م</span>
+                            <span class="text-sm text-gray-500 line-through">١٨ ج.م</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div class="h-32 rounded-lg overflow-hidden mb-4">
+                            <img src="https://readdy.ai/api/search-image?query=Cold%20cola%20drink%20in%20glass%20with%20ice%20cubes%20on%20white%20background%2C%20professional%20beverage%20photography%2C%20bright%20lighting%2C%20clean%20presentation%2C%20refreshing%20soda&width=300&height=200&seq=drink3&orientation=landscape" alt="مشروب غازي" class="w-full h-full object-cover object-top">
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">مشروب غازي</h3>
+                        <p class="text-sm text-gray-600 mb-3">مشروب غازي بارد مع الثلج</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-primary">٧ ج.م</span>
+                            <span class="text-sm text-gray-500 line-through">١٠ ج.م</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- اشتراك في النشرة البريدية -->
+        <section class="py-16 bg-primary">
+            <div class="max-w-4xl mx-auto px-4 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">احصل على أحدث العروض</h2>
+                <p class="text-xl text-amber-100 mb-8">اشترك في نشرتنا البريدية لتكون أول من يعرف عن العروض الجديدة</p>
+                
+                <div class="max-w-md mx-auto">
+                    <div class="flex gap-3">
+                        <input type="email" placeholder="أدخل بريدك الإلكتروني" class="flex-1 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-white">
+                        <button class="bg-white text-primary px-6 py-3 rounded-xl font-medium hover:bg-gray-100 transition-colors">
+                            اشترك
+                        </button>
+                    </div>
+                    <p class="text-sm text-amber-100 mt-3">نعدك بعدم إرسال رسائل مزعجة</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 space-x-reverse mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-restaurant-line text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">مملكة الطيور</h4>
+                            <p class="text-sm text-gray-400">أشهى المأكولات</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        مطعم متخصص في تقديم أشهى الكريبات والمشويات والحواوشي بأجود المكونات وأفضل الأسعار.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">روابط سريعة</h5>
+                    <ul class="space-y-2">
+                        <li><a href="./index.html" class="text-gray-400 hover:text-primary transition-colors">الرئيسية</a></li>
+                        <li><a href="./menu.html" class="text-gray-400 hover:text-primary transition-colors">قائمة الطعام</a></li>
+                        <li><a href="./order-online.html" class="text-gray-400 hover:text-primary transition-colors">الطلب أونلاين</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">من نحن</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">فروعنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">معلومات التواصل</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">٠١٢٣٤٥٦٧٨٩٠</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">info@birdspalace.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">شارع الجمهورية، وسط البلد</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">تابعنا</h5>
+                    <div class="flex gap-3 mb-6">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        اشترك في نشرتنا البريدية للحصول على أحدث العروض
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© ٢٠٢٥ مملكة الطيور. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu
+            const menuButton = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // تغيير أيقونة القائمة
+                    const icon = this.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.className = 'ri-menu-line text-xl';
+                    } else {
+                        icon.className = 'ri-close-line text-xl';
+                    }
+                });
+            }
+            // إضافة وظيفة السلة
+            const addToCartButtons = document.querySelectorAll('button');
+            const cartCount = document.getElementById('cart-count');
+            let cartCountValue = 0;
+            
+            addToCartButtons.forEach(button => {
+                if (button.textContent.includes('اطلب الآن')) {
+                    button.addEventListener('click', function() {
+                        cartCountValue++;
+                        cartCount.textContent = cartCountValue;
+                        cartCount.classList.remove('hidden');
+                        
+                        // تأثير بصري
+                        this.classList.add('animate-pulse');
+                        setTimeout(() => {
+                            this.classList.remove('animate-pulse');
+                        }, 500);
+                        
+                        alert('تم إضافة الطلب إلى السلة!');
+                    });
+                }
+            });
+            
+            // وظيفة الاشتراك في النشرة البريدية
+            const subscribeButton = document.querySelector('button:contains("اشترك")');
+            if (subscribeButton) {
+                subscribeButton.addEventListener('click', function() {
+                    const emailInput = this.previousElementSibling;
+                    if (emailInput.value) {
+                        alert('تم الاشتراك بنجاح! شكراً لك.');
+                        emailInput.value = '';
+                    } else {
+                        alert('يرجى إدخال بريدك الإلكتروني');
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

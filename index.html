@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <script src="./assests/js/h.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مملكة الطيور - أشهى الكريبات والمشويات</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#F59E0B",
+              secondary: "#D97706",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+            fontFamily: {
+              cairo: ["Cairo", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+
+      body {
+        font-family: "Cairo", sans-serif;
+      }
+
+        .text-outline {
+    -webkit-text-stroke: 2px black; /* سمك الخط ولونه */
+    color: white; /* لون داخل النص */
+  }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-800">
+    <header
+      class="bg-white shadow-sm border-b border-amber-100 sticky top-0 z-50"
+    >
+      <div class="w-full px-4 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-4 space-x-reverse">
+            <button
+              id="mobile-menu-btn"
+              class="w-6 h-6 flex items-center justify-center lg:hidden"
+            >
+              <i class="ri-menu-line text-xl"></i>
+            </button>
+            <button
+              class="w-10 h-10 flex items-center justify-center bg-amber-50 rounded-full"
+              onclick="window.location.href='./cart.html'"
+            >
+              <i class="ri-shopping-cart-line text-primary"></i>
+            </button>
+            <button
+              class="w-10 h-10 flex items-center justify-center"
+              onclick="window.location.href='./login.html'"
+            >
+              <i class="ri-user-line text-gray-600"></i>
+            </button>
+          </div>
+          <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
+            <a href="./index.html" class="text-primary font-medium">الرئيسية</a>
+            <a
+              href="./menu.html"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >قائمة الطعام</a
+            >
+            <a
+              href="./order-online.html"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >الطلب أونلاين</a
+            >
+            <a
+              href="./offers.html"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >العروض</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >من نحن</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >تواصل معنا</a
+            >
+            <a
+              href="#"
+              class="text-gray-600 hover:text-primary transition-colors"
+              >فروعنا</a
+            >
+          </nav>
+          <div class="flex items-center space-x-3 space-x-reverse">
+            <div
+              class="w-8 h-8 flex items-center justify-center bg-primary rounded-full"
+            >
+              <i class="ri-restaurant-line text-white"></i>
+            </div>
+            <div>
+              <h1 class="text-xl font-bold text-gray-800">مملكة الطيور</h1>
+              <p class="text-xs text-gray-500">أشهى المأكولات</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden bg-white border-t border-gray-200 hidden"
+      >
+        <div class="px-4 py-4 space-y-2">
+          <a
+            href="./index.html"
+            class="block py-3 px-4 text-primary font-medium bg-amber-50 rounded-lg"
+            >الرئيسية</a
+          >
+          <a
+            href="./menu.html"
+            class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >قائمة الطعام</a
+          >
+          <a
+            href="./order-online.html"
+            class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >الطلب أونلاين</a
+          >
+          <a
+            href="./offers.html"
+            class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >العروض</a
+          >
+          <a
+            href="#"
+            class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >من نحن</a
+          >
+          <a
+            href="#"
+            class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >تواصل معنا</a
+          >
+          <a
+            href="#"
+            class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
+            >فروعنا</a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <section
+        class="relative min-h-screen flex items-center justify-center overflow-hidden"
+        style="
+          background-image: url('./assests/images/hero1.jpg');
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <!-- طبقة البلور -->
+        <div class="absolute inset-0 backdrop-blur-sm"></div>
+        <!-- ممكن تزود البلور: backdrop-blur-md أو backdrop-blur-lg -->
+
+        <div class="relative z-10 w-full px-4 lg:px-8">
+          <div class="max-w-7xl mx-auto">
+            <div class="grid gap-12 items-center">
+              <div class="text-center">
+                <h2
+                  class="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+                >
+                  مرحباً بكم في
+                  <span class="text-primary">مملكة الطيور</span>
+                </h2>
+                <p class="text-xl text-black mb-8 leading-relaxed">
+                  استمتع بأشهى الكريبات والمشويات الطازجة<br />
+                  مع أجود المكونات وأفضل الطعم
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="./order-online.html"
+                    class="bg-primary text-white px-8 py-4 !rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                  >
+                    اطلب الآن
+                  </a>
+                  <a href="./menu.html"
+                    class="border-2 border-primary text-primary px-8 py-4 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors whitespace-nowrap"
+                  >
+                    تصفح القائمة
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">
+            أقسام مميزة
+          </h3>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/cat1.jpg"
+                  alt="كريبات"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="font-semibold text-gray-800 mb-2">الكريبات</h4>
+              <p class="text-sm text-gray-600">بحشوات متنوعة ولذيذة</p>
+            </div>
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/cat2.jpg"
+                  alt="فراخ"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="font-semibold text-gray-800 mb-2">الفراخ</h4>
+              <p class="text-sm text-gray-600">مشوية ومقرمشة</p>
+            </div>
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/cat3.jpg"
+                  alt="حواوشي"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="font-semibold text-gray-800 mb-2">الحواوشي</h4>
+              <p class="text-sm text-gray-600">طازج ومحضر يومياً</p>
+            </div>
+            <div
+              class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/cat4.jpg"
+                  alt="وجبات سريعة"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="font-semibold text-gray-800 mb-2">الوجبات السريعة</h4>
+              <p class="text-sm text-gray-600">سريعة ولذيذة</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-4">
+              العروض اليومية
+            </h3>
+            <p class="text-gray-600">عروض مميزة وأسعار لا تقاوم</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-100"
+            >
+              <div class="h-48 rounded-lg overflow-hidden mb-4">
+                <img
+                  src="./assests/images/offer1.jpg"
+                  alt="عرض الكومبو"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">
+                عرض الكومبو المميز
+              </h4>
+              <p class="text-gray-600 mb-4">كريب + قطع فراخ + مشروب</p>
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-2xl font-bold text-primary">٨٥ ج.م</span>
+                  <span class="text-sm text-gray-500 line-through mr-2"
+                    >١٢٠ ج.م</span
+                  >
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                >
+                  اطلب الآن
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-100"
+            >
+              <div class="h-48 rounded-lg overflow-hidden mb-4">
+                <img
+                  src="./assests/images/offer2.jpg"
+                  alt="وجبة العائلة"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">وجبة العائلة</h4>
+              <p class="text-gray-600 mb-4">٤ حواوشي + مقبلات + مشروبات</p>
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-2xl font-bold text-primary">١٥٠ ج.م</span>
+                  <span class="text-sm text-gray-500 line-through mr-2"
+                    >٢٠٠ ج.م</span
+                  >
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                >
+                  اطلب الآن
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-100"
+            >
+              <div class="h-48 rounded-lg overflow-hidden mb-4">
+                <img
+                  src="./assests/images/offer3.jpg"
+                  alt="وجبة الفراخ"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">
+                وجبة الفراخ المشوية
+              </h4>
+              <p class="text-gray-600 mb-4">نصف فرخة + أرز + سلطة</p>
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-2xl font-bold text-primary">٧٥ ج.م</span>
+                  <span class="text-sm text-gray-500 line-through mr-2"
+                    >٩٥ ج.م</span
+                  >
+                </div>
+                <button
+                  class="bg-primary text-white px-6 py-2 !rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                >
+                  اطلب الآن
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-4">أشهر الأطباق</h3>
+            <p class="text-gray-600">الأطباق الأكثر طلباً من عملائنا</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assests/images/dish1.jpg"
+                  alt="كريب الفراخ"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold text-gray-800 mb-2">كريب الفراخ</h4>
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-400 text-sm">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 mr-2">(٤.٨)</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  كريب محشو بقطع الفراخ المتبلة والخضار الطازجة
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-bold text-primary">٤٥ ج.م</span>
+                  <button
+                    class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                  >
+                    أضف للسلة
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assests/images/dish2.jpg"
+                  alt="ربع فرخة مشوية"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold text-gray-800 mb-2">ربع فرخة مشوية</h4>
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-400 text-sm">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-half-fill"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 mr-2">(٤.٦)</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  ربع فرخة مشوية بالتتبيلة الخاصة ومقرمشة من الخارج
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-bold text-primary">٣٥ ج.م</span>
+                  <button
+                    class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                  >
+                    أضف للسلة
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assests/images/dish3.jpg"
+                  alt="حواوشي لحمة"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold text-gray-800 mb-2">حواوشي لحمة</h4>
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-400 text-sm">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 mr-2">(٤.٩)</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  حواوشي محشو باللحمة المفرومة والخضار الطازجة
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-bold text-primary">٣٠ ج.م</span>
+                  <button
+                    class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                  >
+                    أضف للسلة
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div class="h-48 overflow-hidden">
+                <img
+                  src="./assests/images/dish4.jpg"
+                  alt="كريب الجبنة"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="font-semibold text-gray-800 mb-2">كريب الجبنة</h4>
+                <div class="flex items-center mb-2">
+                  <div class="flex text-yellow-400 text-sm">
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-line"></i>
+                  </div>
+                  <span class="text-sm text-gray-600 mr-2">(٤.٢)</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                  كريب محشو بخليط من الجبن الذائب والأعشاب
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-lg font-bold text-primary">٢٥ ج.م</span>
+                  <button
+                    class="bg-primary text-white px-4 py-2 !rounded-button text-sm font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                  >
+                    أضف للسلة
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <div class="rounded-xl overflow-hidden shadow-lg">
+                <img
+                  src="./assests/images/about1.jpg"
+                  alt="داخل المطعم"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+            <div class="order-1 lg:order-2 text-right">
+              <h3 class="text-3xl font-bold text-gray-800 mb-6">من نحن</h3>
+              <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                مملكة الطيور هو مطعم متخصص في تقديم أشهى الكريبات والمشويات
+                والحواوشي منذ عام ٢٠١٥. نحن نفتخر بتقديم أجود المكونات الطازجة
+                وأفضل الوصفات التقليدية مع لمسة عصرية.
+              </p>
+              <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                رؤيتنا هي أن نكون الخيار الأول لعشاق الطعم الأصيل والجودة
+                العالية، ونسعى دائماً لتقديم تجربة طعام مميزة لجميع عملائنا
+                الكرام.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-end">
+                <button
+                  class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-secondary transition-colors whitespace-nowrap"
+                >
+                  اعرف المزيد
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-4">آراء عملائنا</h3>
+            <p class="text-gray-600">ما يقوله عملاؤنا عن تجربتهم معنا</p>
+          </div>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/customer1.jpg"
+                  alt="أحمد محمد"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="flex justify-center text-yellow-400 mb-3">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                "أفضل كريبات في المنطقة! الطعم رائع والخدمة ممتازة. أنصح الجميع
+                بتجربة كريب الفراخ."
+              </p>
+              <h5 class="font-semibold text-gray-800">أحمد محمد</h5>
+              <p class="text-sm text-gray-500">عميل دائم</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/customer2.jpg"
+                  alt="فاطمة أحمد"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="flex justify-center text-yellow-400 mb-3">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                "الحواوشي هنا له طعم مختلف ولذيذ جداً. العجينة مقرمشة والحشو
+                طازج. سأعود بالتأكيد!"
+              </p>
+              <h5 class="font-semibold text-gray-800">فاطمة أحمد</h5>
+              <p class="text-sm text-gray-500">عميلة جديدة</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-6 text-center">
+              <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                <img
+                  src="./assests/images/customer3.jpg"
+                  alt="محمد علي"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div class="flex justify-center text-yellow-400 mb-3">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-half-fill"></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                "الفراخ المشوية هنا لها طعم مميز والأسعار معقولة. المكان نظيف
+                والخدمة سريعة."
+              </p>
+              <h5 class="font-semibold text-gray-800">محمد علي</h5>
+              <p class="text-sm text-gray-500">زائر متكرر</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row items-center justify-between gap-6"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary rounded-full"
+              >
+                <i class="ri-phone-line text-white text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-300">اتصل بنا الآن</p>
+                <p class="text-lg font-semibold">٠١٢٣٤٥٦٧٨٩٠</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary rounded-full"
+              >
+                <i class="ri-map-pin-line text-white text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-300">العنوان</p>
+                <p class="text-lg font-semibold">
+                  شارع الجمهورية، وسط البلد، القاهرة
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary rounded-full"
+              >
+                <i class="ri-time-line text-white text-xl"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-300">أوقات العمل</p>
+                <p class="text-lg font-semibold">
+                  يومياً من ١٠ ص إلى ١٢ م عدا الجمعه
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-3 space-x-reverse mb-6">
+              <div
+                class="w-10 h-10 flex items-center justify-center bg-primary rounded-full"
+              >
+                <i class="ri-restaurant-line text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold">مملكة الطيور</h4>
+                <p class="text-sm text-gray-400">أشهى المأكولات</p>
+              </div>
+            </div>
+            <p class="text-gray-400 leading-relaxed">
+              مطعم متخصص في تقديم أشهى الكريبات والمشويات والحواوشي بأجود
+              المكونات وأفضل الأسعار.
+            </p>
+          </div>
+          <div>
+            <h5 class="text-lg font-semibold mb-4">روابط سريعة</h5>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="80626f53df98921df0fb4513fab26cf0.html#"
+                  class="text-gray-400 hover:text-primary transition-colors"
+                  >الرئيسية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./menu.html"
+                  class="text-gray-400 hover:text-primary transition-colors"
+                  >قائمة الطعام</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./offers.html"
+                  class="text-gray-400 hover:text-primary transition-colors"
+                  >العروض</a
+                >
+              </li>
+              <li>
+                <a
+                  href="80626f53df98921df0fb4513fab26cf0.html#"
+                  class="text-gray-400 hover:text-primary transition-colors"
+                  >من نحن</a
+                >
+              </li>
+              <li>
+                <a
+                  href="80626f53df98921df0fb4513fab26cf0.html#"
+                  class="text-gray-400 hover:text-primary transition-colors"
+                  >فروعنا</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-lg font-semibold mb-4">معلومات التواصل</h5>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-phone-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">٠١٢٣٤٥٦٧٨٩٠</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-mail-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">info@birdspalace.com</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-map-pin-line text-primary"></i>
+                </div>
+                <span class="text-gray-400">شارع الجمهورية، وسط البلد</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-lg font-semibold mb-4">تابعنا</h5>
+            <div class="flex gap-3 mb-6">
+              <a
+                href="80626f53df98921df0fb4513fab26cf0.html#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="80626f53df98921df0fb4513fab26cf0.html#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-line"></i>
+              </a>
+              <a
+                href="80626f53df98921df0fb4513fab26cf0.html#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-whatsapp-line"></i>
+              </a>
+            </div>
+            <p class="text-sm text-gray-400">
+              اشترك في نشرتنا البريدية للحصول على أحدث العروض
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p class="text-gray-400">© ٢٠٢٥ مملكة الطيور. جميع الحقوق محفوظة.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script id="mobile-menu">
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (menuButton && mobileMenu) {
+          menuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+
+            // تغيير أيقونة القائمة
+            const icon = this.querySelector("i");
+            if (mobileMenu.classList.contains("hidden")) {
+              icon.className = "ri-menu-line text-xl";
+            } else {
+              icon.className = "ri-close-line text-xl";
+            }
+          });
+        }
+      });
+    </script>
+    <script id="cart-functionality">
+      document.addEventListener("DOMContentLoaded", function () {
+        const cartButtons = document.querySelectorAll(
+          'button:contains("أضف للسلة"), button:contains("اطلب الآن")'
+        );
+        let cartCount = 0;
+        cartButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            cartCount++;
+            const cartIcon = document.querySelector(
+              ".ri-shopping-cart-line"
+            ).parentElement;
+            cartIcon.classList.add("animate-pulse");
+            setTimeout(() => {
+              cartIcon.classList.remove("animate-pulse");
+            }, 500);
+          });
+        });
+      });
+    </script>
+    <script id="smooth-scrolling">
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+              targetSection.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

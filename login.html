@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <script src="./assests/js/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - مملكة الطيور</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F59E0B',
+                        secondary: '#D97706'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b border-amber-100">
+        <div class="w-full px-4 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="mobile-menu-btn" class="w-6 h-6 flex items-center justify-center lg:hidden">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center bg-amber-50 rounded-full">
+                        <i class="ri-shopping-cart-line text-primary"></i>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-user-line text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="./index.html" class="text-gray-600 hover:text-primary transition-colors">الرئيسية</a>
+                    <a href="./menu.html" class="text-gray-600 hover:text-primary transition-colors">قائمة الطعام</a>
+                    <a href="./order-online.html" class="text-gray-600 hover:text-primary transition-colors">الطلب أونلاين</a>
+                    <a href="./offers.html" class="text-gray-600 hover:text-primary transition-colors">العروض</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">من نحن</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">تواصل معنا</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">فروعنا</a>
+                </nav>
+                
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full">
+                        <i class="ri-restaurant-line text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">مملكة الطيور</h1>
+                        <p class="text-xs text-gray-500">أشهى المأكولات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-4 py-4 space-y-2">
+                <a href="./index.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">الرئيسية</a>
+                <a href="./menu.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">قائمة الطعام</a>
+                <a href="./order-online.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">الطلب أونلاين</a>
+                <a href="./offers.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">العروض</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">من نحن</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">تواصل معنا</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">فروعنا</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen flex items-center justify-center py-12">
+        <div class="max-w-md w-full mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-primary rounded-full">
+                        <i class="ri-user-line text-white text-2xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">تسجيل الدخول</h1>
+                    <p class="text-gray-600">مرحباً بك مرة أخرى في مملكة الطيور</p>
+                </div>
+
+                <form id="login-form" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني أو رقم الهاتف</label>
+                        <div class="relative">
+                            <input type="text" required class="w-full px-4 py-3 pr-12 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="أدخل بريدك الإلكتروني أو رقم هاتفك">
+                            <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+                                <i class="ri-mail-line text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">كلمة المرور</label>
+                        <div class="relative">
+                            <input type="password" required id="password" class="w-full px-4 py-3 pr-12 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="أدخل كلمة المرور">
+                            <button type="button" id="toggle-password" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+                            <span class="mr-2 text-sm text-gray-600">تذكرني</span>
+                        </label>
+                        <a href="#" class="text-sm text-primary hover:text-secondary">نسيت كلمة المرور؟</a>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-secondary transition-colors">
+                        تسجيل الدخول
+                    </button>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="text-gray-600 mb-4">ليس لديك حساب؟</p>
+                    <a href="./register.html" class="text-primary hover:text-secondary font-medium">إنشاء حساب جديد</a>
+                </div>
+
+                <div class="mt-8">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-200"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">أو</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-200 rounded-xl text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                            <i class="ri-google-fill text-red-500 mr-2"></i>
+                            Google
+                        </button>
+                        <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-200 rounded-xl text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                            <i class="ri-facebook-fill text-blue-600 mr-2"></i>
+                            Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- معلومات إضافية -->
+            <div class="mt-8 text-center">
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">مميزات التسجيل</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="ri-truck-line text-primary"></i>
+                            <span class="text-gray-600">توصيل مجاني</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="ri-gift-line text-primary"></i>
+                            <span class="text-gray-600">عروض حصرية</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <i class="ri-history-line text-primary"></i>
+                            <span class="text-gray-600">تاريخ الطلبات</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 space-x-reverse mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-restaurant-line text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">مملكة الطيور</h4>
+                            <p class="text-sm text-gray-400">أشهى المأكولات</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        مطعم متخصص في تقديم أشهى الكريبات والمشويات والحواوشي بأجود المكونات وأفضل الأسعار.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">روابط سريعة</h5>
+                    <ul class="space-y-2">
+                        <li><a href="./index.html" class="text-gray-400 hover:text-primary transition-colors">الرئيسية</a></li>
+                        <li><a href="./menu.html" class="text-gray-400 hover:text-primary transition-colors">قائمة الطعام</a></li>
+                        <li><a href="./order-online.html" class="text-gray-400 hover:text-primary transition-colors">الطلب أونلاين</a></li>
+                        <li><a href="./offers.html" class="text-gray-400 hover:text-primary transition-colors">العروض</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">فروعنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">معلومات التواصل</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">٠١٢٣٤٥٦٧٨٩٠</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">info@birdspalace.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">شارع الجمهورية، وسط البلد</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">تابعنا</h5>
+                    <div class="flex gap-3 mb-6">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        اشترك في نشرتنا البريدية للحصول على أحدث العروض
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© ٢٠٢٥ مملكة الطيور. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu
+            const menuButton = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // تغيير أيقونة القائمة
+                    const icon = this.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.className = 'ri-menu-line text-xl';
+                    } else {
+                        icon.className = 'ri-close-line text-xl';
+                    }
+                });
+            }
+            const togglePassword = document.getElementById('toggle-password');
+            const passwordInput = document.getElementById('password');
+            
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                const icon = this.querySelector('i');
+                icon.classList.toggle('ri-eye-line');
+                icon.classList.toggle('ri-eye-off-line');
+            });
+            
+            const loginForm = document.getElementById('login-form');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // محاكاة تسجيل الدخول
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'جاري تسجيل الدخول...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('تم تسجيل الدخول بنجاح!');
+                    window.location.href = './index.html';
+                }, 2000);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

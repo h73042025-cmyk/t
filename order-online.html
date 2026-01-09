@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <script src="https://static.readdy.ai/static/e.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطلب أونلاين - مملكة الطيور</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F59E0B',
+                        secondary: '#D97706'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+    <header class="bg-white shadow-sm border-b border-amber-100 sticky top-0 z-50">
+        <div class="w-full px-4 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="mobile-menu-btn" class="w-6 h-6 flex items-center justify-center lg:hidden">
+                        <i class="ri-menu-line text-xl"></i>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center bg-amber-50 rounded-full relative">
+                        <i class="ri-shopping-cart-line text-primary"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center">
+                        <i class="ri-user-line text-gray-600"></i>
+                    </button>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="./index.html" class="text-gray-600 hover:text-primary transition-colors">الرئيسية</a>
+                    <a href="./menu.html" class="text-gray-600 hover:text-primary transition-colors">قائمة الطعام</a>
+                    <a href="#" class="text-primary font-medium">الطلب أونلاين</a>
+                    <a href="./offers.html" class="text-gray-600 hover:text-primary transition-colors">العروض</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">من نحن</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">تواصل معنا</a>
+                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">فروعنا</a>
+                </nav>
+                
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-8 h-8 flex items-center justify-center bg-primary rounded-full">
+                        <i class="ri-restaurant-line text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">مملكة الطيور</h1>
+                        <p class="text-xs text-gray-500">أشهى المأكولات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-200 hidden">
+            <div class="px-4 py-4 space-y-2">
+                <a href="./index.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">الرئيسية</a>
+                <a href="./menu.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">قائمة الطعام</a>
+                <a href="./order-online.html" class="block py-3 px-4 text-primary font-medium bg-amber-50 rounded-lg">الطلب أونلاين</a>
+                <a href="./offers.html" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">العروض</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">من نحن</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">تواصل معنا</a>
+                <a href="#" class="block py-3 px-4 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">فروعنا</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen">
+        <section class="bg-gradient-to-b from-amber-50 to-white py-12">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <nav class="text-sm text-gray-600 mb-6">
+                    <a href="./index.html" class="hover:text-primary">الرئيسية</a>
+                    <span class="mx-2">></span>
+                    <span class="text-primary">الطلب أونلاين</span>
+                </nav>
+                
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">الطلب أونلاين</h1>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">اطلب طعامك المفضل من مملكة الطيور واستمتع بالتوصيل السريع</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- قائمة الطعام -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full">
+                                    <i class="ri-restaurant-line text-white text-xl"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800">اختر طعامك</h2>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <!-- كريبات -->
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">الكريبات</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">كريب الفراخ</h4>
+                                                <p class="text-sm text-gray-600">٤٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">كريب الجبنة</h4>
+                                                <p class="text-sm text-gray-600">٢٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">كريب مكس</h4>
+                                                <p class="text-sm text-gray-600">٥٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- مشويات -->
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">المشويات</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">ربع فرخة مشوية</h4>
+                                                <p class="text-sm text-gray-600">٣٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">نصف فرخة مشوية</h4>
+                                                <p class="text-sm text-gray-600">٦٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">فرخة كاملة مشوية</h4>
+                                                <p class="text-sm text-gray-600">١٢٠ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- حواوشي -->
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">الحواوشي</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">حواوشي لحمة</h4>
+                                                <p class="text-sm text-gray-600">٣٠ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">حواوشي فراخ</h4>
+                                                <p class="text-sm text-gray-600">٢٨ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">حواوشي مكس</h4>
+                                                <p class="text-sm text-gray-600">٣٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- مشروبات -->
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">المشروبات</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">عصير برتقال طازج</h4>
+                                                <p class="text-sm text-gray-600">١٥ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">عصير مانجو</h4>
+                                                <p class="text-sm text-gray-600">١٨ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-white rounded-lg p-3">
+                                            <div>
+                                                <h4 class="font-medium text-gray-800">مشروب غازي</h4>
+                                                <p class="text-sm text-gray-600">١٠ ج.م</p>
+                                            </div>
+                                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded text-sm hover:bg-secondary transition-colors">
+                                                أضف
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- السلة ومعلومات الطلب -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-xl shadow-sm p-6 sticky top-24">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full">
+                                    <i class="ri-shopping-cart-line text-white text-xl"></i>
+                                </div>
+                                <h2 class="text-2xl font-bold text-gray-800">سلة الطلب</h2>
+                            </div>
+
+                            <div id="cart-items" class="space-y-3 mb-6">
+                                <div class="text-center text-gray-500 py-8">
+                                    <i class="ri-shopping-cart-line text-4xl mb-2"></i>
+                                    <p>السلة فارغة</p>
+                                </div>
+                            </div>
+
+                            <div class="border-t pt-4 mb-6">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-600">المجموع الفرعي:</span>
+                                    <span id="subtotal" class="font-semibold">٠ ج.م</span>
+                                </div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-gray-600">رسوم التوصيل:</span>
+                                    <span id="delivery-fee" class="font-semibold">١٥ ج.م</span>
+                                </div>
+                                <div class="flex justify-between items-center text-lg font-bold">
+                                    <span>المجموع الكلي:</span>
+                                    <span id="total" class="text-primary">١٥ ج.م</span>
+                                </div>
+                            </div>
+
+                            <button id="checkout-btn" class="w-full bg-primary text-white py-3 rounded-xl font-medium hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                اكمل الطلب
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- نموذج معلومات الطلب -->
+        <section class="py-8 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 lg:px-8">
+                <div class="bg-white rounded-xl shadow-sm p-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-user-line text-white text-xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">معلومات الطلب</h2>
+                    </div>
+
+                    <form id="order-form" class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">الاسم الكامل</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">رقم الهاتف</label>
+                            <input type="tel" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">العنوان</label>
+                            <textarea required rows="3" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">طريقة الدفع</label>
+                            <select required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">اختر طريقة الدفع</option>
+                                <option value="cash">الدفع عند الاستلام</option>
+                                <option value="card">الدفع بالبطاقة</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">وقت التوصيل</label>
+                            <select class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="asap">في أقرب وقت ممكن</option>
+                                <option value="30min">خلال ٣٠ دقيقة</option>
+                                <option value="1hour">خلال ساعة</option>
+                                <option value="2hours">خلال ساعتين</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ملاحظات إضافية (اختياري)</label>
+                            <textarea rows="2" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="أي ملاحظات خاصة بالطلب..."></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 space-x-reverse mb-6">
+                        <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+                            <i class="ri-restaurant-line text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">مملكة الطيور</h4>
+                            <p class="text-sm text-gray-400">أشهى المأكولات</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        مطعم متخصص في تقديم أشهى الكريبات والمشويات والحواوشي بأجود المكونات وأفضل الأسعار.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">روابط سريعة</h5>
+                    <ul class="space-y-2">
+                        <li><a href="./index.html" class="text-gray-400 hover:text-primary transition-colors">الرئيسية</a></li>
+                        <li><a href="./menu.html" class="text-gray-400 hover:text-primary transition-colors">قائمة الطعام</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">العروض</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">من نحن</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">فروعنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">معلومات التواصل</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">٠١٢٣٤٥٦٧٨٩٠</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">info@birdspalace.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">شارع الجمهورية، وسط البلد</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">تابعنا</h5>
+                    <div class="flex gap-3 mb-6">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        اشترك في نشرتنا البريدية للحصول على أحدث العروض
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© ٢٠٢٥ مملكة الطيور. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu
+            const menuButton = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // تغيير أيقونة القائمة
+                    const icon = this.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.className = 'ri-menu-line text-xl';
+                    } else {
+                        icon.className = 'ri-close-line text-xl';
+                    }
+                });
+            }
+            
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const subtotal = document.getElementById('subtotal');
+            const total = document.getElementById('total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            
+            let cart = [];
+            let deliveryFee = 15;
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const item = this.closest('.flex');
+                    const name = item.querySelector('h4').textContent;
+                    const price = parseInt(item.querySelector('p').textContent.replace(' ج.م', ''));
+                    
+                    const existingItem = cart.find(item => item.name === name);
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({ name, price, quantity: 1 });
+                    }
+                    
+                    updateCart();
+                });
+            });
+            
+            function updateCart() {
+                cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.classList.remove('hidden');
+                
+                if (cart.length === 0) {
+                    cartItems.innerHTML = `
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="ri-shopping-cart-line text-4xl mb-2"></i>
+                            <p>السلة فارغة</p>
+                        </div>
+                    `;
+                    checkoutBtn.disabled = true;
+                } else {
+                    cartItems.innerHTML = cart.map(item => `
+                        <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                            <div>
+                                <h4 class="font-medium text-gray-800">${item.name}</h4>
+                                <p class="text-sm text-gray-600">${item.price} ج.م × ${item.quantity}</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button class="quantity-btn text-primary hover:text-secondary" data-name="${item.name}">
+                                    <i class="ri-subtract-line"></i>
+                                </button>
+                                <span class="font-medium">${item.quantity}</span>
+                                <button class="quantity-btn text-primary hover:text-secondary" data-name="${item.name}">
+                                    <i class="ri-add-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    checkoutBtn.disabled = false;
+                    
+                    // إضافة مستمعي الأحداث للأزرار الجديدة
+                    document.querySelectorAll('.quantity-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const name = this.getAttribute('data-name');
+                            const item = cart.find(item => item.name === name);
+                            
+                            if (this.querySelector('.ri-subtract-line')) {
+                                if (item.quantity > 1) {
+                                    item.quantity -= 1;
+                                } else {
+                                    cart = cart.filter(i => i.name !== name);
+                                }
+                            } else {
+                                item.quantity += 1;
+                            }
+                            
+                            updateCart();
+                        });
+                    });
+                }
+                
+                const subtotalValue = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                subtotal.textContent = subtotalValue + ' ج.م';
+                total.textContent = (subtotalValue + deliveryFee) + ' ج.م';
+            }
+            
+            checkoutBtn.addEventListener('click', function() {
+                const form = document.getElementById('order-form');
+                if (form.checkValidity()) {
+                    alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً.');
+                    cart = [];
+                    updateCart();
+                    form.reset();
+                } else {
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
